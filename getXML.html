@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<button>获取文件</button>
+		<div id="box"></div>
+		<script type="text/javascript">
+			var btn=document.getElementsByTagName("button")[0];
+			var box=document.getElementById("box");
+			btn.onclick=function(){
+				if(window.XMLHttpRequest){
+					var xhr=new XMLHttpRequest();
+				}
+				else{
+					var xhr=new ActiveXObject('Microsoft.XMLHTTP');
+				}
+				
+				xhr.open("GET","myXML.xml",true);
+				
+				xhr.send(null);
+				
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						var getXml=xhr.responseXML;
+						var detailBook=getXml.getElementsByTagName("detailBook");
+						for(var i=0;i<detailBook.length;i++){
+							var book=document.createElement("div");
+							//去每一个detialBook下面分别获取作者 、书名、日期
+							var bookName=detailBook[i].getElementsByTagName("bookName")[0];
+							var bookTime=detailBook[i].getElementsByTagName("bookTime")[0];
+							var author=detailBook[i].getElementsByTagName("author")[0];
+							book.innerHTML=author.innerHTML+bookName.innerHTML+bookTime.innerHTML;
+							
+							box.appendChild(book);
+						}
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

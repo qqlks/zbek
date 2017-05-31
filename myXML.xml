@@ -1,0 +1,22 @@
+<book>
+	<detailBook>
+		<author>老毛</author>
+		<bookName>大毛流浪记</bookName>
+		<bookTime>2017/5/22</bookTime>
+	</detailBook>
+	<detailBook>
+		<author>老毛</author>
+		<bookName>二毛流浪记</bookName>
+		<bookTime>2017/5/22</bookTime>
+	</detailBook>
+	<detailBook>
+		<author>老毛</author>
+		<bookName>三毛流浪记</bookName>
+		<bookTime>2017/5/22</bookTime>
+	</detailBook>
+	<detailBook>
+		<author>老毛</author>
+		<bookName>小毛流浪记</bookName>
+		<bookTime>2017/5/22</bookTime>
+	</detailBook>
+</book>

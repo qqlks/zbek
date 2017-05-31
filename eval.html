@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var jsonstr='{"name":"张三","age":alert("18")}';
+		var obj=eval('('+jsonstr+')');
+		console.log(obj);//eval()函数在解析json格式的字符串的时候，会将其中的js代码执行，而JSON.parse()不会，但JSON.parse()对格式要求更加严格（所解析的json格式的字符串必须严格按照json格式来写）
+	</script>
+</body>
+</html>

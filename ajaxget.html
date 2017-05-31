@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		用户名：<input type="text"></input><br>
+		密码：<input type="password"></input><br>
+		<button>提交</button>
+		<script type="text/javascript">
+			var user=document.getElementsByTagName('input')[0];
+			var passWord=document.getElementsByTagName('input')[1];
+			var btn=document.getElementsByTagName('button')[0];
+			btn.onclick=function(){
+				//第一步:买一个手机
+				if(window.XMLHttpRequest){
+					var xhr=new XMLHttpRequest();
+				}
+				else{
+					var xhr=new ActiveXObject('Microsoft.XMLHTTP');
+				}
+				//第二步:输入对方电话号码
+				var url="php/formGet.php?user="+user.value+"&passWord="+passWord.value;
+				xhr.open("GET",url,true);
+				//参数一：请求方式；参数二：请求的文件或地址；是否异步（一般选择为true）
+				
+				//第三步：按下拨号键
+				xhr.send(null);
+				
+				//第四步：等待拨号成功
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+				//第五步：对方回话
+						var str=xhr.responseText;
+						var obj=JSON.parse(str);
+						console.log(obj);
+						
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
